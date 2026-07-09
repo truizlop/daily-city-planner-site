@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daily City Planner — one city a day, drawn by you</title>
+<title>Daily City Planner: one city a day, drawn by you</title>
 <meta name="description" content="A daily deduction puzzle: place streets, parks, lakes and buildings on a blueprint so every surveyor's clue holds true. One puzzle a day, exactly one solution.">
 <meta property="og:title" content="Daily City Planner">
 <meta property="og:description" content="One city a day, drawn by you. A blueprint deduction puzzle for iPhone and iPad.">
@@ -130,18 +130,13 @@ h2 {
   display: flex; align-items: center; justify-content: center;
   font-family: "Architects Daughter", cursive; color: var(--ink);
 }
+.step .fig { width: 100%; height: auto; margin-bottom: 12px; opacity: .92; }
 .step h4 {
   font-family: "Allerta Stencil", sans-serif; font-weight: 400; letter-spacing: .15em;
   font-size: 13px; margin-bottom: 10px; color: var(--ink);
 }
 .step p { font-family: "Architects Daughter", cursive; font-size: 14.5px; line-height: 1.6; color: var(--ink-dim); }
 
-/* ── Elements strip ── */
-.legend {
-  display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: center;
-  font-size: 12.5px; color: var(--ink-dim); letter-spacing: .04em;
-}
-.legend span::before { content: "— "; color: var(--ink); }
 
 /* ── Footer title block ── */
 footer { border-top: 2px solid var(--ink); margin-top: 60px; }
@@ -160,7 +155,7 @@ footer { border-top: 2px solid var(--ink); margin-top: 60px; }
   <div class="kicker">the zoning board needs you, chief planner</div>
   <h1><span class="daily">DAILY</span>CITY PLANNER</h1>
   <div class="rule"></div>
-  <p class="tagline">One city a day, drawn by you. Read the surveyor's clues, place every street, park and building — there is exactly <em>one</em> legal layout.</p>
+  <p class="tagline">One city a day, drawn by you. Read the surveyor's clues, pave the streets and place every park and building. There is exactly <em>one</em> legal layout.</p>
   <div class="hero-cta">
     <a class="store-btn" href="https://apps.apple.com/us/app/id6789138152">
       <img src="assets/icon.png" alt=""> DOWNLOAD ON THE APP STORE
@@ -174,25 +169,25 @@ footer { border-top: 2px solid var(--ink); margin-top: 60px; }
   <h2>A DRAFTING TABLE IN YOUR POCKET</h2>
   <div class="features">
     <div class="feature reveal">
-      <div class="phone" data-fig="FIG. 1 — DRAFTING">
+      <div class="phone" data-fig="FIG. 1 · DRAFTING">
         <video src="assets/gameplay.mp4" autoplay loop muted playsinline></video>
       </div>
       <h3>CAD-STYLE EDITOR</h3>
-      <p>Arm a piece, tap the grid, rotate with the compass. Drag to relocate — or drop it on DEMOLISH and start over. Every element inks itself onto the blueprint.</p>
+      <p>Pave streets block by block in the color you choose, and deduce how far each one runs. Rotate pieces, drag to relocate, drop on DEMOLISH to start over. Every element inks itself onto the blueprint.</p>
     </div>
     <div class="feature reveal">
-      <div class="phone" data-fig="FIG. 2 — SURVEYOR'S NOTES">
+      <div class="phone" data-fig="FIG. 2 · SURVEYOR'S NOTES">
         <video src="assets/clues.mp4" autoplay loop muted playsinline></video>
       </div>
       <h3>DEDUCE, DON'T GUESS</h3>
-      <p>Pull up the surveyor's notes: crossings, districts, compass bearings. Strike clues through as you use them. Logic alone pins every block.</p>
+      <p>Pull up the surveyor's notes: crossings, districts, compass bearings, street lengths. Strike clues through as you use them. Logic alone pins every block.</p>
     </div>
     <div class="feature reveal">
-      <div class="phone" data-fig="FIG. 3 — THE VERDICT">
+      <div class="phone" data-fig="FIG. 3 · THE VERDICT">
         <video src="assets/verdict.mp4" autoplay loop muted playsinline></video>
       </div>
       <h3>EARN THE STAMP</h3>
-      <p>Submit for review and face the zoning board. Build your streak, share your field report, and come back tomorrow — a new city unlocks at midnight.</p>
+      <p>Submit for review and face the zoning board. Build your streak, share your field report, and come back tomorrow: a new city unlocks at midnight.</p>
     </div>
   </div>
 </section>
@@ -201,22 +196,46 @@ footer { border-top: 2px solid var(--ink); margin-top: 60px; }
   <div class="sec-label">STANDING ORDERS</div>
   <h2>HOW A CITY GETS BUILT</h2>
   <div class="how">
-    <div class="step reveal"><h4>READ THE NOTES</h4><p>Each daily commission ships with a handful of surveyor's clues — together they admit exactly one solution. Provably. Every puzzle is machine-checked for uniqueness.</p></div>
-    <div class="step reveal"><h4>PLACE THE ELEMENTS</h4><p>Colored streets that cross and meet, two-block hospitals, tetromino parks and lakes, corner constructions, and one-of-a-kind buildings.</p></div>
-    <div class="step reveal"><h4>MIND THE DISTRICTS</h4><p>Thick ink lines carve the plot into neighborhoods. Clues speak their language: "the lake sits between districts 2 &amp; 3."</p></div>
-    <div class="step reveal"><h4>KEEP THE STREAK</h4><p>One puzzle a day. Solve it flawlessly and your streak burns green; the Live Activity keeps your drafting clock ticking on the Lock Screen.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="sec-label">LEGEND</div>
-  <div class="legend">
-    <span>streets in eight ink colors</span>
-    <span>hospitals · 2 blocks</span>
-    <span>parks · T &amp; Z tetrominoes</span>
-    <span>lakes · lines &amp; squares</span>
-    <span>schools, museums, cafés…</span>
-    <span>constructions · corner lots</span>
+    <div class="step reveal">
+      <svg class="fig" viewBox="0 0 120 74" fill="none" stroke="#dbe9ff" stroke-width="1.6" stroke-linecap="round">
+        <rect x="18" y="6" width="84" height="62" rx="3" stroke-opacity=".8"/>
+        <path d="M30 20h44M30 32h60M30 44h52M30 56h34" stroke-opacity=".55"/>
+        <circle cx="24" cy="20" r="3.4"/><circle cx="24" cy="32" r="3.4"/>
+        <circle cx="24" cy="44" r="3.4"/><circle cx="24" cy="56" r="3.4"/>
+        <path d="M88 50l14 14M96 50l6 6" stroke="#ffd479"/>
+      </svg>
+      <h4>READ THE NOTES</h4><p>Each daily commission ships with a handful of surveyor's clues that admit exactly one solution. Provably. Every puzzle is machine-checked for uniqueness.</p></div>
+    <div class="step reveal">
+      <svg class="fig" viewBox="0 0 120 74" fill="none" stroke="#dbe9ff" stroke-width="1.6" stroke-linecap="round">
+        <path d="M8 37h58" stroke="#ff6b6b" stroke-width="7" stroke-opacity=".85"/>
+        <path d="M12 37h50" stroke="#0a2d60" stroke-width="1.4" stroke-dasharray="4 5"/>
+        <path d="M84 10v54" stroke="#7ef4e9" stroke-width="7" stroke-opacity=".85"/>
+        <rect x="16" y="10" width="26" height="14" rx="2"/><path d="M29 13v8M25 17h8" stroke="#ff8f8f" stroke-width="2.4"/>
+        <circle cx="30" cy="56" r="7" stroke="#8fe8a8"/><path d="M30 63v5" stroke="#8fe8a8"/>
+        <rect x="96" y="26" width="16" height="16" stroke="#ffd479" stroke-dasharray="5 3"/>
+      </svg>
+      <h4>DRAFT THE ELEMENTS</h4><p>Streets paved block by block in eight ink colors, two-block hospitals, tetromino parks and lakes, corner constructions, and one-of-a-kind buildings.</p></div>
+    <div class="step reveal">
+      <svg class="fig" viewBox="0 0 120 74" fill="none" stroke="#dbe9ff" stroke-width="1.2" stroke-linecap="round">
+        <rect x="14" y="8" width="92" height="58" stroke-opacity=".7"/>
+        <path d="M14 22h30M44 8v26M44 34h34M78 34v32" stroke-width="3.2"/>
+        <circle cx="26" cy="15" r="5.6" stroke-opacity=".8"/><text x="26" y="18" fill="#dbe9ff" font-size="8" text-anchor="middle" stroke="none" font-family="Architects Daughter, cursive">1</text>
+        <circle cx="62" cy="20" r="5.6" stroke-opacity=".8"/><text x="62" y="23" fill="#dbe9ff" font-size="8" text-anchor="middle" stroke="none" font-family="Architects Daughter, cursive">2</text>
+        <circle cx="58" cy="52" r="5.6" stroke-opacity=".8"/><text x="58" y="55" fill="#dbe9ff" font-size="8" text-anchor="middle" stroke="none" font-family="Architects Daughter, cursive">3</text>
+      </svg>
+      <h4>MIND THE DISTRICTS</h4><p>Thick ink lines carve the plot into neighborhoods. Clues speak their language: "the lake sits between districts 2 &amp; 3."</p></div>
+    <div class="step reveal">
+      <svg class="fig" viewBox="0 0 120 74" fill="none" stroke="#dbe9ff" stroke-width="1.6" stroke-linecap="round">
+        <rect x="12" y="30" width="13" height="13" rx="2" stroke-opacity=".35"/>
+        <rect x="29" y="30" width="13" height="13" rx="2" stroke-opacity=".35"/>
+        <rect x="46" y="30" width="13" height="13" rx="2" fill="#ffd479" fill-opacity=".85" stroke="none"/>
+        <rect x="63" y="30" width="13" height="13" rx="2" fill="#7dffb1" fill-opacity=".85" stroke="none"/>
+        <rect x="80" y="30" width="13" height="13" rx="2" fill="#7dffb1" fill-opacity=".85" stroke="none"/>
+        <path d="M99 43c0-7 3-9 3-13 3 3 6 6 6 10a4.5 4.5 0 0 1-9 3z" stroke="#7dffb1"/>
+        <path d="M30 14h60" stroke-opacity=".4" stroke-dasharray="3 5"/>
+        <path d="M28 58h64" stroke-opacity=".4" stroke-dasharray="3 5"/>
+      </svg>
+      <h4>KEEP THE STREAK</h4><p>One puzzle a day. Solve it flawlessly and your streak burns green, while the Live Activity keeps your drafting clock ticking on the Lock Screen.</p></div>
   </div>
 </section>
 
@@ -224,11 +243,11 @@ footer { border-top: 2px solid var(--ink); margin-top: 60px; }
   <div class="tblock">
     <div>
       <div class="lbl">Project</div>
-      <div class="val">Daily City Planner — a blueprint deduction puzzle</div>
+      <div class="val">Daily City Planner, a blueprint deduction puzzle</div>
     </div>
     <div>
       <div class="lbl">Drawn by</div>
-      <div class="val">TRL Mobile Software · © 2026</div>
+      <div class="val">Tomás Ruiz-López · © 2026</div>
     </div>
   </div>
 </footer>
