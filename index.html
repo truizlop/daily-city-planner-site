@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily City Planner — one city a day, drawn by you</title>
+<meta name="description" content="A daily deduction puzzle: place streets, parks, lakes and buildings on a blueprint so every surveyor's clue holds true. One puzzle a day, exactly one solution.">
+<meta property="og:title" content="Daily City Planner">
+<meta property="og:description" content="One city a day, drawn by you. A blueprint deduction puzzle for iPhone and iPad.">
+<meta property="og:image" content="https://truizlop.github.io/daily-city-planner-site/assets/icon.png">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Allerta+Stencil&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #0e3a78;
+  --paper-deep: #0a2d60;
+  --paper-raised: #134487;
+  --ink: #dbe9ff;
+  --ink-dim: #8fb3e8;
+  --ink-faint: rgba(219,233,255,.16);
+  --grid: rgba(219,233,255,.07);
+  --grid-major: rgba(219,233,255,.13);
+  --amber: #ffd479;
+  --approve: #7dffb1;
+  --red: #ff6b6b;
+  --cyan: #7ef4e9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(0deg, var(--grid-major) 0 1px, transparent 1px 130px),
+    repeating-linear-gradient(90deg, var(--grid-major) 0 1px, transparent 1px 130px),
+    radial-gradient(ellipse at 30% 0%, var(--paper-raised) 0%, var(--paper) 50%, var(--paper-deep) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; position: relative; }
+
+/* ── Hero ── */
+header { padding: 84px 0 30px; text-align: center; }
+.kicker {
+  font-family: "Architects Daughter", cursive; color: var(--ink-dim);
+  font-size: 17px; letter-spacing: .06em;
+}
+h1 {
+  font-family: "Allerta Stencil", sans-serif; font-weight: 400;
+  font-size: clamp(40px, 8vw, 84px); letter-spacing: .1em; line-height: 1.05;
+  margin: 14px 0 6px; text-shadow: 0 0 26px rgba(219,233,255,.35);
+}
+h1 .daily { display: block; font-size: .38em; letter-spacing: .68em; color: var(--ink-dim); margin-bottom: 6px; }
+.rule { width: 240px; height: 2px; background: var(--ink); margin: 22px auto; opacity: .8; }
+.tagline {
+  font-family: "Architects Daughter", cursive; font-size: clamp(17px, 2.6vw, 22px);
+  color: var(--ink); max-width: 560px; margin: 0 auto;
+}
+.hero-cta { margin-top: 34px; display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; }
+.store-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--amber); color: var(--paper-deep); text-decoration: none;
+  font-family: "Allerta Stencil", sans-serif; font-size: 15px; letter-spacing: .16em;
+  padding: 15px 30px; border-radius: 4px; transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 8px 30px rgba(255,212,121,.25);
+}
+.store-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(255,212,121,.4); }
+.store-btn img { width: 26px; height: 26px; border-radius: 6px; }
+.free-note { font-size: 11px; color: var(--ink-dim); letter-spacing: .1em; }
+
+/* ── Stamp ── */
+.stamp {
+  position: absolute; top: 60px; right: 4%; transform: rotate(12deg);
+  font-family: "Allerta Stencil", sans-serif; color: var(--approve); font-size: 15px;
+  letter-spacing: .3em; padding: 9px 18px; border: 3px double var(--approve);
+  border-radius: 6px; opacity: .55; pointer-events: none;
+}
+@media (max-width: 720px) { .stamp { display: none; } }
+
+/* ── Sections ── */
+section { padding: 70px 0; }
+.sec-label {
+  font-family: "Allerta Stencil", sans-serif; font-size: 13px; letter-spacing: .4em;
+  color: var(--ink-dim); text-align: center; margin-bottom: 8px;
+}
+h2 {
+  font-family: "Allerta Stencil", sans-serif; font-weight: 400; text-align: center;
+  font-size: clamp(24px, 4.5vw, 38px); letter-spacing: .12em; margin-bottom: 46px;
+}
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 42px; }
+.feature { text-align: center; }
+.phone {
+  position: relative; width: min(300px, 78vw); margin: 0 auto 22px;
+  border: 2.5px solid var(--ink); border-radius: 34px; padding: 10px;
+  background: rgba(10,45,96,.5);
+  box-shadow: 0 0 0 6px rgba(219,233,255,.05), 0 30px 80px rgba(0,0,0,.45);
+}
+.phone::before {
+  content: attr(data-fig); position: absolute; top: -12px; left: 26px;
+  background: var(--paper); padding: 0 10px; font-family: "Architects Daughter", cursive;
+  font-size: 13px; color: var(--ink-dim); letter-spacing: .08em;
+}
+.phone video { width: 100%; display: block; border-radius: 24px; }
+.feature h3 {
+  font-family: "Allerta Stencil", sans-serif; font-weight: 400;
+  font-size: 17px; letter-spacing: .2em; margin-bottom: 10px; color: var(--amber);
+}
+.feature p {
+  font-family: "Architects Daughter", cursive; font-size: 15.5px; line-height: 1.65;
+  color: var(--ink-dim); max-width: 330px; margin: 0 auto;
+}
+
+/* ── How it works ── */
+.how { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 26px; counter-reset: step; }
+.step {
+  border: 1.4px solid var(--ink-faint); border-radius: 6px; padding: 26px 22px 22px;
+  position: relative; background: rgba(10,45,96,.35);
+}
+.step::before {
+  counter-increment: step; content: counter(step);
+  position: absolute; top: -16px; left: 20px; width: 32px; height: 32px;
+  border: 1.4px solid var(--ink-dim); border-radius: 50%; background: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Architects Daughter", cursive; color: var(--ink);
+}
+.step h4 {
+  font-family: "Allerta Stencil", sans-serif; font-weight: 400; letter-spacing: .15em;
+  font-size: 13px; margin-bottom: 10px; color: var(--ink);
+}
+.step p { font-family: "Architects Daughter", cursive; font-size: 14.5px; line-height: 1.6; color: var(--ink-dim); }
+
+/* ── Elements strip ── */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: center;
+  font-size: 12.5px; color: var(--ink-dim); letter-spacing: .04em;
+}
+.legend span::before { content: "— "; color: var(--ink); }
+
+/* ── Footer title block ── */
+footer { border-top: 2px solid var(--ink); margin-top: 60px; }
+.tblock { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 22px 0 46px; }
+.tblock .lbl { font-size: 9px; letter-spacing: .3em; color: var(--ink-dim); text-transform: uppercase; margin-bottom: 4px; }
+.tblock .val { font-family: "Architects Daughter", cursive; font-size: 14px; }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.on { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<div class="stamp">APPROVED</div>
+<div class="wrap">
+
+<header>
+  <div class="kicker">the zoning board needs you, chief planner</div>
+  <h1><span class="daily">DAILY</span>CITY PLANNER</h1>
+  <div class="rule"></div>
+  <p class="tagline">One city a day, drawn by you. Read the surveyor's clues, place every street, park and building — there is exactly <em>one</em> legal layout.</p>
+  <div class="hero-cta">
+    <a class="store-btn" href="https://apps.apple.com/us/app/id6789138152">
+      <img src="assets/icon.png" alt=""> DOWNLOAD ON THE APP STORE
+    </a>
+    <span class="free-note">free · iPhone &amp; iPad</span>
+  </div>
+</header>
+
+<section>
+  <div class="sec-label">FIELD FOOTAGE</div>
+  <h2>A DRAFTING TABLE IN YOUR POCKET</h2>
+  <div class="features">
+    <div class="feature reveal">
+      <div class="phone" data-fig="FIG. 1 — DRAFTING">
+        <video src="assets/gameplay.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <h3>CAD-STYLE EDITOR</h3>
+      <p>Arm a piece, tap the grid, rotate with the compass. Drag to relocate — or drop it on DEMOLISH and start over. Every element inks itself onto the blueprint.</p>
+    </div>
+    <div class="feature reveal">
+      <div class="phone" data-fig="FIG. 2 — SURVEYOR'S NOTES">
+        <video src="assets/clues.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <h3>DEDUCE, DON'T GUESS</h3>
+      <p>Pull up the surveyor's notes: crossings, districts, compass bearings. Strike clues through as you use them. Logic alone pins every block.</p>
+    </div>
+    <div class="feature reveal">
+      <div class="phone" data-fig="FIG. 3 — THE VERDICT">
+        <video src="assets/verdict.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <h3>EARN THE STAMP</h3>
+      <p>Submit for review and face the zoning board. Build your streak, share your field report, and come back tomorrow — a new city unlocks at midnight.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-label">STANDING ORDERS</div>
+  <h2>HOW A CITY GETS BUILT</h2>
+  <div class="how">
+    <div class="step reveal"><h4>READ THE NOTES</h4><p>Each daily commission ships with a handful of surveyor's clues — together they admit exactly one solution. Provably. Every puzzle is machine-checked for uniqueness.</p></div>
+    <div class="step reveal"><h4>PLACE THE ELEMENTS</h4><p>Colored streets that cross and meet, two-block hospitals, tetromino parks and lakes, corner constructions, and one-of-a-kind buildings.</p></div>
+    <div class="step reveal"><h4>MIND THE DISTRICTS</h4><p>Thick ink lines carve the plot into neighborhoods. Clues speak their language: "the lake sits between districts 2 &amp; 3."</p></div>
+    <div class="step reveal"><h4>KEEP THE STREAK</h4><p>One puzzle a day. Solve it flawlessly and your streak burns green; the Live Activity keeps your drafting clock ticking on the Lock Screen.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-label">LEGEND</div>
+  <div class="legend">
+    <span>streets in eight ink colors</span>
+    <span>hospitals · 2 blocks</span>
+    <span>parks · T &amp; Z tetrominoes</span>
+    <span>lakes · lines &amp; squares</span>
+    <span>schools, museums, cafés…</span>
+    <span>constructions · corner lots</span>
+  </div>
+</section>
+
+<footer>
+  <div class="tblock">
+    <div>
+      <div class="lbl">Project</div>
+      <div class="val">Daily City Planner — a blueprint deduction puzzle</div>
+    </div>
+    <div>
+      <div class="lbl">Drawn by</div>
+      <div class="val">TRL Mobile Software · © 2026</div>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      e.target.classList.add("on");
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll(".reveal").forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 3) * 120}ms`;
+  io.observe(el);
+});
+</script>
+</body>
+</html>
