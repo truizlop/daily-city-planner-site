@@ -1,0 +1,10 @@
+# Social sharing image
+
+Asset: `assets/city-puzzle-social-v2.jpg` (1200 × 630 JPEG).
+
+Created with built-in imagegen using `assets/results-current.png` as the reference, then resized and JPEG-encoded with macOS sips. This is a screenshot-referenced promotional composition, not an unmodified screenshot. It replaces the rejected scenic-city illustration.
+
+## Generation prompt
+
+Create a 1200x630 landscape social sharing card by faithfully reframing the provided ACTUAL GAME SCREENSHOT. This is a compositing task, not city illustration. Use the exact flat 2D blueprint puzzle board under "OFFICIAL SOLUTION" in the reference as the main visual, enlarged on the right. Preserve its simple 5 by 5 square grid, A-E columns and 1-5 rows, yellow crosshatched straight street spanning the top row, green T shaped park with tiny outlined trees, short coral patterned street on row 4, and long pale blue lake with outlined sailboat across four cells of the bottom row. Keep these flat line drawings and original colors, shapes and placements. No 3D, no buildings, no realistic city, no isometric view, no added pieces or invented gameplay, no photorealism. Do not include any of the reference screenshot outside that board: omit report, status, failure stamp, controls, timer, and streak.
+Background continuous dark royal blueprint blue with fine faint square drafting grid, exactly the screenshot aesthetic. On the left, warm cream Allerta Stencil-style uppercase type: small "DAILY CITY PLANNER" at top, large headline split over three lines "EVERY CLUE\nHAS A\nPLACE." Beneath, handwritten Architects Daughter-style smaller cream text "Find the one city that fits." A small cream ruled paper strip along the bottom left says "A daily logic puzzle". Generous 50px outer safe margins. The game board should be large, clear, perfectly front facing, taking right half, fully visible. Match the restrained, simple hand-drafted game graphics precisely; avoid decorative scenic architecture. This must look like the actual game in the reference, merely arranged into a wide promotional card.
