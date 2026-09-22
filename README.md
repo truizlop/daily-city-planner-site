@@ -9,8 +9,9 @@ The September 2026 refresh uses actual screenshots from the game's verified
 September 17 build, local licensed fonts, responsive layouts, reduced-motion
 support, and an ad/purchase privacy policy at `privacy.html`.
 
-The app is awaiting its public App Store listing, so the page deliberately says
-“Coming to the App Store”. Replace this with a verified store link when released.
+The app is available on the App Store: https://apps.apple.com/app/id6789138152
+The hero and footer link to the public listing, verified on September 22, 2026.
+Safari can also show the native Smart App Banner.
 
 AdMob seller authorization is also published at the domain root:
 https://truizlop.github.io/app-ads.txt
