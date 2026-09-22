@@ -16,3 +16,6 @@ Safari can also show the native Smart App Banner.
 AdMob seller authorization is also published at the domain root:
 https://truizlop.github.io/app-ads.txt
 The project copy is supplied for portability; AdMob crawls the domain root.
+
+The official App Store badge is stored unchanged from Apple:
+https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg

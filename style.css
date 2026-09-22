@@ -9,3 +9,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
 
 .footer-actions{margin-bottom:36px}
+
+.actions{align-items:center;gap:20px}.app-store-badge{display:inline-flex;flex-shrink:0;padding:6px 0;text-decoration:none}.app-store-badge img{display:block;width:180px;height:auto}.app-store-badge:focus-visible{border-radius:5px}
