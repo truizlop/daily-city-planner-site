@@ -19,3 +19,8 @@ The project copy is supplied for portability; AdMob crawls the domain root.
 
 The official App Store badge is stored unchanged from Apple:
 https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg
+
+The launch hero shows a completed native puzzle board and an approved result.
+The approval capture uses illustrative demo progress: a 14-day streak, matching
+best and total, and seven solved days. Captured with StoreCampaignCaptureTests
+on September 22, 2026; the app source and saved progress are restored afterward.
