@@ -37,7 +37,10 @@ The terms pages retain the app’s existing Apple Standard EULA.
 The official German App Store badge is stored unchanged from Apple:
 https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de
 
-German screenshots are native captures from the German localization build.
+German screenshots are native captures from the German 2.4 localization build,
+captured on October 24, 2026 from the October 8 puzzle: `native.03-city.png`,
+`native.04-approved.png` and `native.02-clues.png` in the app screenshot source
+archive. The approval capture shows a one-day streak; its native text is unchanged.
 The German social preview uses the same authentic game screenshot as the hero.
 Publish by pushing reviewed changes to `main`; GitHub Pages uses the repository
 root and its existing Pages build and deployment workflow.
