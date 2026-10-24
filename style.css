@@ -11,3 +11,7 @@
 .footer-actions{margin-bottom:36px}
 
 .actions{align-items:center;gap:20px}.app-store-badge{display:inline-flex;flex-shrink:0;padding:6px 0;text-decoration:none}.app-store-badge img{display:block;width:180px;height:auto}.app-store-badge:focus-visible{border-radius:5px}
+
+/* Language links and longer translated copy retain the blueprint layout. */
+.site-header nav{flex-wrap:wrap;justify-content:flex-end}.footer-bottom>div{flex-wrap:wrap}html:lang(de) h1{white-space:normal;font-size:clamp(38px,4.5vw,68px)}html:lang(de) .steps h3{white-space:normal}html:lang(de) .how h2{font-size:clamp(36px,4.4vw,64px)}
+@media(max-width:760px){.site-header nav{justify-content:flex-start;gap:12px 24px}html:lang(de) h1{font-size:clamp(32px,7.5vw,55px)}html:lang(de) .how h2{font-size:36px}.site-header{padding-block:18px}}

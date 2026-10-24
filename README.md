@@ -24,3 +24,20 @@ The launch hero shows a completed native puzzle board and an approved result.
 The approval capture uses illustrative demo progress: a 14-day streak, matching
 best and total, and seven solved days. Captured with StoreCampaignCaptureTests
 on September 22, 2026; the app source and saved progress are restored afterward.
+
+## German localization (October 2026)
+
+The German landing page is at `de/`, with `de/support.html`, `de/privacy.html`
+and `de/terms.html`. English pages remain at the root. Each page offers an
+explicit language link and reciprocal canonical/hreflang metadata; no browser
+language redirect is used. The privacy translation preserves the published
+September 22, 2026 policy, including Firebase Analytics and Crashlytics.
+The terms pages retain the app’s existing Apple Standard EULA.
+
+The official German App Store badge is stored unchanged from Apple:
+https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de
+
+German screenshots are native captures from the German localization build.
+The German social preview uses the same authentic game screenshot as the hero.
+Publish by pushing reviewed changes to `main`; GitHub Pages uses the repository
+root and its existing Pages build and deployment workflow.
