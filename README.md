@@ -44,3 +44,11 @@ archive. The approval capture shows a one-day streak; its native text is unchang
 The German social preview uses the same authentic game screenshot as the hero.
 Publish by pushing reviewed changes to `main`; GitHub Pages uses the repository
 root and its existing Pages build and deployment workflow.
+
+## Italian localization (October 2026)
+
+Italian pages are at `it/`, `it/support.html`, `it/privacy.html`, and `it/terms.html`.
+They preserve the existing layout, policy and Apple Standard EULA destination.
+The native screenshots come from the Italian 2.5 build. The official Italian
+App Store badge is bundled unchanged from Apple’s marketing tools.
+Language links are explicit and reciprocal; there are no automatic redirects.
